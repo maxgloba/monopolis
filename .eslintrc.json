@@ -1,0 +1,9 @@
+{
+  "extends": ["@nuxt/eslint-config"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "no-console": "warn",
+    "vue/component-name-in-template-casing": ["error", "PascalCase"]
+  }
+}

@@ -1,0 +1,61 @@
+// ============================================
+// МОНОПОЛИС — Design Tokens
+// Концепция: дорогое казино, Российская империя
+// ============================================
+
+// --- Основные цвета ---
+$gold:         #D4A017;
+$gold-light:   #E8B830;
+$gold-dark:    #B8860B;
+$gold-muted:   #8A7A5A;
+$gold-faint:   #2A2218;
+
+$noir:         #0A0A0A;
+$noir-surface: #111008;
+$noir-card:    #161410;
+$noir-border:  #2A2218;
+
+$ivory:        #F5F0E8;
+$ivory-muted:  #C4B898;
+$ivory-faint:  #5A4E3A;
+
+// --- Цвета тем игры ---
+$theme-football: #1E6B2E;
+$theme-hockey:   #1A237E;
+$theme-empire:   #7B1FA2;
+$theme-politics: #B71C1C;
+
+// --- Шрифты ---
+$font-serif: 'Playfair Display', serif;
+$font-sans:  'Roboto', sans-serif;
+
+// --- Типографика ---
+$text-imperial: 32px; // Главные заголовки — Playfair, letter-spacing 4px
+$text-heading:  24px; // Заголовки секций — Playfair
+$text-subhead:  18px; // Подзаголовки
+$text-body:     14px; // Основной текст — Roboto
+$text-label:    11px; // Метки, капслок — Roboto 300, letter-spacing 3px
+$text-caption:  10px; // Самые мелкие подписи
+
+// --- Отступы ---
+$space-xs:  4px;
+$space-sm:  8px;
+$space-md:  16px;
+$space-lg:  24px;
+$space-xl:  40px;
+$space-2xl: 64px;
+
+// --- Переходы ---
+$transition-fast:   150ms ease;
+$transition-normal: 250ms ease;
+$transition-slow:   400ms ease;
+
+// --- Радиусы ---
+$radius-sharp: 2px;  // Кнопки, инпуты — острые углы (премиально)
+$radius-card:  8px;  // Карточки
+$radius-round: 50%;  // Аватары
+
+// --- Тени ---
+$shadow-gold:    0 0 20px rgba(212, 160, 23, 0.15);
+$shadow-gold-sm: 0 0 8px rgba(212, 160, 23, 0.10);
+$shadow-dark:    0 4px 24px rgba(0, 0, 0, 0.6);

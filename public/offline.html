@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Монополис — Нет подключения</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0A0A0A;
+      color: #F5F0E8;
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      text-align: center;
+      padding: 48px 40px;
+      background: #161410;
+      border: 1px solid #2A2218;
+      border-radius: 4px;
+      max-width: 440px;
+      width: 90%;
+      position: relative;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4A017, transparent);
+    }
+    .icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #D4A017;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #C4B898;
+      font-size: 14px;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+      margin-bottom: 32px;
+    }
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #D4A017, #B8860B);
+      color: #0A0A0A;
+      border: none;
+      border-radius: 2px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.9; }
+    button:active { transform: scale(0.98); }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="card">
+    <div class="icon">♟</div>
+    <h1>Нет подключения</h1>
+    <p>Игра требует соединения с интернетом.<br />Проверьте подключение и попробуйте снова.</p>
+    <button onclick="window.location.reload()">Повторить</button>
+  </div>
+</body>
+</html>

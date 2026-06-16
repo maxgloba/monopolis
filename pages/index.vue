@@ -1,0 +1,1 @@
+/Volumes/Macintosh HD - Data/MONOPOLIS/app/pages/index.vue

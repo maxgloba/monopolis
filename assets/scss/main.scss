@@ -1,0 +1,198 @@
+@use 'mixins' as *;
+@use 'animations';
+
+// Глобальный сброс
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Базовые стили
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $text-body;
+  color: $ivory;
+  background: $noir;
+  min-height: 100vh;
+}
+
+// Заголовки — читабельные, с явными шрифтами
+h1, .h1 {
+  font-family: $font-serif;
+  font-size: $text-imperial;
+  font-weight: 700;
+  color: $gold;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  margin-bottom: $space-md;
+}
+
+h2, .h2 {
+  font-family: $font-sans;
+  font-size: 22px;
+  font-weight: 500;
+  color: $ivory;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  margin-bottom: $space-md;
+  margin-top: $space-xl;
+}
+
+h3, .h3 {
+  font-family: $font-sans;
+  font-size: 18px;
+  font-weight: 500;
+  color: $ivory;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  margin-bottom: $space-sm;
+  margin-top: $space-lg;
+}
+
+h4, .h4 {
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 500;
+  color: $ivory-muted;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  margin-bottom: $space-sm;
+  margin-top: $space-md;
+}
+
+h5, .h5, h6, .h6 {
+  font-family: $font-sans;
+  font-size: $text-body;
+  font-weight: 500;
+  color: $ivory-muted;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: $space-sm;
+  margin-top: $space-md;
+}
+
+p {
+  font-family: $font-sans;
+  font-size: $text-body;
+  color: $ivory;
+  line-height: 1.7;
+  margin-bottom: $space-md;
+}
+
+// Скроллбар в стиле казино
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: $noir; }
+::-webkit-scrollbar-thumb {
+  background: $gold-faint;
+  border-radius: 3px;
+  &:hover { background: $gold-muted; }
+}
+
+// Ссылки
+a {
+  color: $gold;
+  text-decoration: none;
+  transition: color $transition-fast;
+  &:hover { color: $gold-light; }
+}
+
+// Выделение текста
+::selection {
+  background: rgba($gold, 0.3);
+  color: $ivory;
+}
+
+// Утилиты для типографики
+.text-gold     { color: $gold; }
+.text-ivory    { color: $ivory; }
+.text-muted    { color: $ivory-muted; }
+.text-label    { @include label-text; }
+.text-imperial { @include imperial-heading($text-imperial); }
+.text-heading  { @include imperial-heading($text-heading); }
+
+// Разделитель с ромбом (фирменный)
+.divider-imperial {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.5rem 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $gold-faint);
+  }
+  &::after {
+    background: linear-gradient(90deg, $gold-faint, transparent);
+  }
+
+  .diamond {
+    width: 6px;
+    height: 6px;
+    background: $gold;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+}
+
+// Карточка (базовый класс)
+.card {
+  @include card-imperial;
+  padding: $space-md $space-lg;
+}
+
+// Кнопки (базовые классы)
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 24px;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+
+  &-primary   { @include btn-primary; }
+  &-secondary { @include btn-secondary; }
+
+  &-sm { padding: 7px 16px; font-size: 12px; letter-spacing: 0.5px; }
+  &-lg { padding: 14px 36px; font-size: 14px; }
+  &-full { width: 100%; }
+}
+
+// Инпут (базовый класс)
+.input {
+  @include input-imperial;
+  width: 100%;
+  padding: 11px 14px;
+  font-size: $text-body;
+}
+
+// Бейдж
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: $radius-sharp;
+
+  &-gold  { background: rgba($gold, 0.1); border: 1px solid $gold; color: $gold; }
+  &-ivory { background: rgba($ivory, 0.05); border: 1px solid rgba($ivory, 0.2); color: $ivory-muted; }
+  &-theme {
+    background: var(--theme-bg, rgba($gold, 0.1));
+    border: 1px solid var(--theme-color, $gold);
+    color: var(--theme-color, $gold);
+  }
+}

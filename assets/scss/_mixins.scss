@@ -1,0 +1,135 @@
+@use 'variables' as *;
+
+// Золотая линия сверху карточки (как в казино)
+@mixin gold-top-line {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $gold, transparent);
+  }
+}
+
+// Золотая рамка при hover
+@mixin gold-hover {
+  border-color: $gold-faint;
+  transition: border-color $transition-normal;
+  &:hover {
+    border-color: $gold;
+    box-shadow: $shadow-gold-sm;
+  }
+}
+
+// Текст-метка (капслок, Roboto 300)
+@mixin label-text {
+  font-family: $font-sans;
+  font-size: $text-label;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $gold-muted;
+}
+
+// Заголовок в стиле Playfair
+@mixin imperial-heading($size: $text-heading) {
+  font-family: $font-serif;
+  font-size: $size;
+  font-weight: 700;
+  color: $gold;
+  letter-spacing: 2px;
+}
+
+// Карточка (тёмная поверхность + золотая линия)
+@mixin card-imperial {
+  background: $noir-card;
+  border: 1px solid $noir-border;
+  border-radius: $radius-card;
+  @include gold-top-line;
+  @include gold-hover;
+}
+
+// Кнопка основная (золотой градиент)
+@mixin btn-primary {
+  background: linear-gradient(135deg, $gold, $gold-dark);
+  color: $noir;
+  border: none;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: $radius-sharp;
+  transition: filter $transition-fast, transform $transition-fast;
+  &:hover { filter: brightness(1.08); }
+  &:active { filter: brightness(0.95); transform: scale(0.99); }
+  &:disabled { opacity: 0.4; cursor: not-allowed; filter: none; }
+}
+
+// Кнопка вторичная (золотой контур)
+@mixin btn-secondary {
+  background: transparent;
+  color: $gold;
+  border: 1px solid $gold;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: $radius-sharp;
+  transition: all $transition-fast;
+  &:hover {
+    background: rgba($gold, 0.07);
+    border-color: $gold-light;
+    color: $gold-light;
+  }
+}
+
+// Инпут в стиле Монополис
+@mixin input-imperial {
+  background: $noir-surface;
+  border: 1px solid $noir-border;
+  border-bottom: 1px solid $gold;
+  color: $ivory;
+  font-family: $font-sans;
+  border-radius: $radius-sharp;
+  transition: border-color $transition-fast;
+  &::placeholder { color: $ivory-faint; }
+  &:focus {
+    outline: none;
+    border-color: $gold;
+    box-shadow: $shadow-gold-sm;
+  }
+  &.error {
+    border-bottom-color: $theme-politics;
+  }
+}
+
+// Тема игры — цветовой акцент
+@mixin theme-accent($theme) {
+  @if $theme == 'football' {
+    --theme-color: #{$theme-football};
+    --theme-bg: rgba(30, 107, 46, 0.1);
+  } @else if $theme == 'hockey' {
+    --theme-color: #{$theme-hockey};
+    --theme-bg: rgba(26, 35, 126, 0.1);
+  } @else if $theme == 'empire' {
+    --theme-color: #{$theme-empire};
+    --theme-bg: rgba(123, 31, 162, 0.1);
+  } @else if $theme == 'politics' {
+    --theme-color: #{$theme-politics};
+    --theme-bg: rgba(183, 28, 28, 0.1);
+  }
+}
+
+// Flex по центру
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
