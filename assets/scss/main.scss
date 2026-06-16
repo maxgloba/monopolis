@@ -23,6 +23,13 @@ body {
   min-height: 100vh;
 }
 
+.container{
+  @apply mx-auto px-4;
+  &-fluid{
+    @apply mx-auto px-4;
+  }
+}
+
 // Заголовки — читабельные, с явными шрифтами
 h1, .h1 {
   font-family: $font-serif;

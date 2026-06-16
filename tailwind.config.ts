@@ -9,6 +9,16 @@ export default {
     './utils/**/*.ts',
   ],
   theme: {
+    screens: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+      smMax: { max: '575px' },
+      mdMax: { max: '767px' },
+      lgMax: { max: '991px' },
+      xlMax: { max: '1199px' },
+    },
     extend: {
       colors: {
         // Основная палитра — Российская империя
@@ -65,9 +75,6 @@ export default {
         'gold':    '0 0 20px rgba(212, 160, 23, 0.15)',
         'gold-sm': '0 0 8px rgba(212, 160, 23, 0.1)',
       },
-      screens: {
-        'xs': '375px',
-      }
     }
   }
 } satisfies Config

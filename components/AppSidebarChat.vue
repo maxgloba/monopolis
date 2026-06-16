@@ -102,7 +102,7 @@ function onAvatarClick(msg: ChatMessage, e: MouseEvent) {
 <style scoped>
 .chat-messages::-webkit-scrollbar { width: 3px; }
 .chat-messages::-webkit-scrollbar-track { background: transparent; }
-.chat-messages::-webkit-scrollbar-thumb { background: theme('colors.noir-border'); border-radius: 2px; }
+.chat-messages::-webkit-scrollbar-thumb { background: theme('colors.noir.border'); border-radius: 2px; }
 
 .chat-bubble-other {
   background: #1e2a1e;

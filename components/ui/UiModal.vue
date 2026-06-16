@@ -36,7 +36,7 @@ watch(() => props.modelValue, (val) => {
             'max-w-[800px]': (size || 'md') === 'lg',
           }"
         >
-          <div class="flex items-center justify-between px-6 pt-5">
+          <div class="flex items-center justify-between px-6">
             <h2 v-if="title" class="font-serif text-[20px] text-gold tracking-[2px]">{{ title }}</h2>
             <button class="bg-transparent border-0 text-ivory-faint text-[18px] cursor-pointer p-1 leading-none hover:text-gold" @click="close">✕</button>
           </div>

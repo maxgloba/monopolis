@@ -1,5 +1,5 @@
 <script setup lang="ts">
-type Variant = 'primary' | 'secondary' | 'danger' | 'ghost'
+type Variant = 'primary' | 'secondary' | 'danger' | 'ghost' | 'dark' | 'dark-ghost'
 type Size = 'sm' | 'md' | 'lg'
 
 const props = withDefaults(defineProps<{
@@ -23,6 +23,8 @@ const variantClasses: Record<string, string> = {
   secondary: 'bg-transparent text-gold border border-gold font-medium hover:bg-gold/[0.08]',
   danger: 'bg-theme-politics text-ivory border border-theme-politics font-bold hover:bg-theme-politics/90 hover:border-theme-politics/90',
   ghost: 'bg-transparent text-ivory-muted border border-ivory/20 font-medium hover:text-ivory hover:border-gold',
+  'dark': 'bg-noir text-gold border border-noir font-bold hover:bg-noir-surface',
+  'dark-ghost': 'bg-transparent text-noir border border-noir/40 font-medium hover:bg-noir/10',
 }
 
 const sizeClasses: Record<string, string> = {

@@ -26,32 +26,33 @@ const navLinks = [
   { label: 'Правила',   to: '/rules'    },
   { label: 'О нас',     to: '/about'    },
   { label: 'Контакты',  to: '/contacts' },
+  { label: 'Лобби',  to: '/lobby' },
 ]
 </script>
 
 <template>
   <header
-    class="sticky top-0 z-[100] w-full bg-transparent transition-all duration-[250ms]"
-    :class="scrolled ? 'bg-noir-surface/[0.92] backdrop-blur-[12px] shadow-dark' : ''"
+    class="sticky top-0 z-[100] w-full transition-all duration-[250ms] bg-gold-gradient shadow-[0_2px_24px_rgba(212,160,23,0.15)]"
+    :class="scrolled ? 'shadow-[0_2px_32px_rgba(212,160,23,0.25)]' : ''"
   >
-    <div class="w-full px-10 h-[72px] flex items-center gap-10">
+    <div class="w-full px-8 py-2 flex items-center gap-4">
 
       <!-- Logo -->
       <NuxtLink
         to="/"
-        class="font-serif text-heading font-bold tracking-[4px] text-gold no-underline flex-shrink-0 transition-all duration-[150ms] hover:text-gold-light"
+        class="font-serif text-heading font-bold tracking-[4px] text-noir no-underline flex-shrink-0 transition-all duration-[150ms] hover:text-noir-surface flex items-center gap-3"
         @click="closeMenu"
       >
-        МОНОПОЛИС
+        <img src="/favicon.png" alt="" class="h-12 w-12 object-contain" />
       </NuxtLink>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-6 flex-1" aria-label="Основная навигация">
+      <nav class="hidden md:flex items-center gap-4" aria-label="Основная навигация">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="nav-link font-sans text-body font-normal tracking-[1px] text-ivory no-underline relative transition-all duration-[150ms] hover:text-gold"
+          class="nav-link font-sans text-[14px] font-bold tracking-[2px] uppercase text-noir no-underline relative transition-all duration-[150ms] hover:text-noir-surface"
           active-class="nav-link--active"
         >
           {{ link.label }}
@@ -67,33 +68,30 @@ const navLinks = [
               :name="auth.user.nickname"
               size="sm"
             />
-            <span class="font-sans text-body text-ivory-muted tracking-[0.5px] max-w-[120px] overflow-hidden text-ellipsis whitespace-nowrap">{{ auth.user.nickname }}</span>
+            <span class="font-sans text-body text-noir tracking-[0.5px] max-w-[120px] overflow-hidden text-ellipsis whitespace-nowrap">{{ auth.user.nickname }}</span>
           </div>
-          <NuxtLink to="/lobby">
-            <UiButton variant="primary" size="sm">В лобби</UiButton>
-          </NuxtLink>
         </template>
         <template v-else>
           <NuxtLink to="/login">
-            <UiButton variant="ghost" size="sm">Войти</UiButton>
+            <UiButton variant="dark-ghost" size="sm">Войти</UiButton>
           </NuxtLink>
           <NuxtLink to="/register">
-            <UiButton variant="primary" size="sm">Играть</UiButton>
+            <UiButton variant="dark" size="sm">Играть</UiButton>
           </NuxtLink>
         </template>
       </div>
 
       <!-- Hamburger -->
       <button
-        class="burger md:hidden flex-col justify-center gap-[5px] w-9 h-9 p-1 bg-transparent border border-noir-border rounded-imperial cursor-pointer ml-auto transition-all duration-[150ms] hover:border-gold-muted"
+        class="burger md:hidden flex-col justify-center gap-[5px] w-9 h-9 p-1 bg-transparent border border-noir/30 rounded-imperial cursor-pointer ml-auto transition-all duration-[150ms] hover:border-noir"
         :class="menuOpen ? 'burger--open flex' : 'flex'"
         aria-label="Открыть меню"
         :aria-expanded="menuOpen"
         @click="menuOpen = !menuOpen"
       >
-        <span class="burger-line block w-full h-px bg-ivory-muted transition-all duration-[150ms]" />
-        <span class="burger-line block w-full h-px bg-ivory-muted transition-all duration-[150ms]" />
-        <span class="burger-line block w-full h-px bg-ivory-muted transition-all duration-[150ms]" />
+        <span class="burger-line block w-full h-px bg-noir transition-all duration-[150ms]" />
+        <span class="burger-line block w-full h-px bg-noir transition-all duration-[150ms]" />
+        <span class="burger-line block w-full h-px bg-noir transition-all duration-[150ms]" />
       </button>
 
     </div>
@@ -153,7 +151,7 @@ const navLinks = [
   bottom: -3px;
   width: 0;
   height: 1px;
-  background: theme('colors.gold.DEFAULT');
+  background: theme('colors.noir.DEFAULT');
   transition: width 250ms;
 }
 
@@ -163,11 +161,11 @@ const navLinks = [
 }
 
 .nav-link--active {
-  color: theme('colors.gold.DEFAULT');
+  color: theme('colors.noir.DEFAULT');
 }
 
 .mobile-link--active {
-  color: theme('colors.gold.DEFAULT');
+  color: theme('colors.noir.DEFAULT');
 }
 
 .burger--open .burger-line:nth-child(1) {
