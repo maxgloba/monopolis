@@ -141,8 +141,12 @@ onMounted(async () => {
     }, 1000)
   })
 
-  // Отправляем room:join только после регистрации всех слушателей
-  socket.emit('room:join', roomId)
+  // Отправляем room:join только после установки соединения
+  if (socket.connected) {
+    socket.emit('room:join', roomId)
+  } else {
+    socket.once('connect', () => socket.emit('room:join', roomId))
+  }
 })
 
 onUnmounted(() => {

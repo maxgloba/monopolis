@@ -16,7 +16,10 @@ export function useLobbySocket() {
     })
   }
 
-  function connect() { lobbySocket!.connect() }
+  function connect() {
+    lobbySocket!.auth = { token: authStore.accessToken }
+    lobbySocket!.connect()
+  }
   function disconnect() { lobbySocket!.disconnect() }
 
   return { socket: lobbySocket, connect, disconnect }
@@ -34,7 +37,10 @@ export function useGameSocket() {
     })
   }
 
-  function connect() { gameSocket!.connect() }
+  function connect() {
+    gameSocket!.auth = { token: authStore.accessToken }
+    gameSocket!.connect()
+  }
   function disconnect() { gameSocket!.disconnect() }
 
   return { socket: gameSocket, connect, disconnect }

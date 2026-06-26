@@ -169,7 +169,10 @@ watch(currentPosition, (newPos) => {
       </div>
 
       <!-- Центр доски -->
-      <div class="board-center">
+      <div
+        class="board-center"
+        :class="`theme-${gameState.theme}`"
+      >
         <div class="board-center-dice">
           <GameDice :dice="currentDice" :rolling="rolling" />
         </div>
@@ -206,7 +209,7 @@ watch(currentPosition, (newPos) => {
   grid-template-rows:    90px repeat(9, 1fr) 90px;
   width: 100%;
   height: 100%;
-  background: #0e1a0e;
+  background: #0a0a0a;
   border: 3px solid $gold;
   border-radius: 4px;
   box-shadow:
@@ -224,8 +227,17 @@ watch(currentPosition, (newPos) => {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #0a1a0a;
+  background: #0a0a0a;
   border: 1px solid rgba($gold, 0.15);
+  background-size: cover;
+  background-position: center;
+
+  &.theme-football {
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/bgs/football.png');
+  }
+  &.theme-hockey {
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/bgs/hockey.png');
+  }
 }
 
 .board-center-dice {
@@ -274,7 +286,7 @@ watch(currentPosition, (newPos) => {
 /* ─── Клетки ─── */
 .cell {
   position: relative;
-  background: #111a11;
+  background: #111111;
   border: 1px solid rgba($gold, 0.2);
   display: flex;
   flex-direction: column;
@@ -285,12 +297,12 @@ watch(currentPosition, (newPos) => {
   padding: 2px;
   transition: background $transition-fast, box-shadow $transition-fast;
 
-  &.type-go          { background: #1a1a0a; }
-  &.type-jail        { background: #1a0a0a; }
-  &.type-go_to_jail  { background: #1a0a0a; }
-  &.type-free_parking{ background: #0a1a1a; }
-  &.type-chance      { background: #0d0d1a; }
-  &.type-treasury    { background: #0d1a0d; }
+  &.type-go          { background: #141410; }
+  &.type-jail        { background: #140a0a; }
+  &.type-go_to_jail  { background: #140a0a; }
+  &.type-free_parking{ background: #0a1414; }
+  &.type-chance      { background: #0d0d14; }
+  &.type-treasury    { background: #0d0d0d; }
 
   // Моя фишка — золотой контур
   // Куплена — рамка цвета владельца

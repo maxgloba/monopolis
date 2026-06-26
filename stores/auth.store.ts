@@ -19,16 +19,25 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function apiFetch<T>(path: string, opts: RequestInit = {}): Promise<T> {
     const hasBody = !!opts.body
-    const res = await fetch(`${baseUrl}${path}`, {
-      credentials: 'include',
-      headers: {
-        ...(hasBody ? { 'Content-Type': 'application/json' } : {}),
-        ...(accessToken.value ? { Authorization: `Bearer ${accessToken.value}` } : {}),
-        ...opts.headers,
-      },
-      ...opts,
-    })
-    return res.json()
+    let res: Response
+    try {
+      res = await fetch(`${baseUrl}${path}`, {
+        credentials: 'include',
+        headers: {
+          ...(hasBody ? { 'Content-Type': 'application/json' } : {}),
+          ...(accessToken.value ? { Authorization: `Bearer ${accessToken.value}` } : {}),
+          ...opts.headers,
+        },
+        ...opts,
+      })
+    } catch {
+      throw new Error('Сервер недоступен. Проверьте соединение.')
+    }
+    try {
+      return await res.json()
+    } catch {
+      throw new Error(`Ошибка сервера (${res.status})`)
+    }
   }
 
   async function login(email: string, password: string): Promise<void> {

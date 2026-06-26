@@ -70,7 +70,7 @@ const authStore = useAuthStore()
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="feat in features" :key="feat.title" class="flex gap-4 p-6 bg-noir-card border border-noir-border rounded-card hover:border-gold/30 transition-colors duration-200">
-            <span class="text-3xl shrink-0">{{ feat.icon }}</span>
+            <span class="text-2xl text-gold shrink-0 w-8 text-center"><i :class="feat.icon"></i></span>
             <div>
               <h4 class="text-ivory font-medium mb-1">{{ feat.title }}</h4>
               <p class="text-ivory-muted text-sm leading-relaxed">{{ feat.desc }}</p>
@@ -121,12 +121,12 @@ const themes = [
 ]
 
 const features = [
-  { icon: '🎮', title: 'Мультиплеер',      desc: 'До 4 игроков в одной комнате. Играй с друзьями или незнакомцами.' },
-  { icon: '🤖', title: 'Боты с ИИ',        desc: 'Три уровня сложности: лёгкий, средний, сложный. Всегда есть с кем сыграть.' },
-  { icon: '💳', title: 'Реальные ставки',  desc: 'Играй на виртуальные монеты или ставь реальные рубли через ЮКассу.' },
-  { icon: '🏆', title: 'Рейтинг',          desc: 'Глобальная таблица лидеров. Поднимайся выше с каждой победой.' },
-  { icon: '🎨', title: 'Кастомизация',     desc: 'Магазин скинов: уникальные фишки, рамки профиля и анимации победы.' },
-  { icon: '⚡', title: 'Реалтайм',         desc: 'Socket.IO — мгновенная синхронизация ходов без задержек.' },
+  { icon: 'fa-solid fa-users',          title: 'Мультиплеер',      desc: 'До 4 игроков в одной комнате. Играй с друзьями или незнакомцами.' },
+  { icon: 'fa-solid fa-robot',          title: 'Боты с ИИ',        desc: 'Три уровня сложности: лёгкий, средний, сложный. Всегда есть с кем сыграть.' },
+  { icon: 'fa-solid fa-coins',          title: 'Реальные ставки',  desc: 'Играй на виртуальные монеты или ставь реальные рубли через ЮКассу.' },
+  { icon: 'fa-solid fa-trophy',         title: 'Рейтинг',          desc: 'Глобальная таблица лидеров. Поднимайся выше с каждой победой.' },
+  { icon: 'fa-solid fa-palette',        title: 'Кастомизация',     desc: 'Магазин скинов: уникальные фишки, рамки профиля и анимации победы.' },
+  { icon: 'fa-solid fa-bolt',           title: 'Реалтайм',         desc: 'Socket.IO — мгновенная синхронизация ходов без задержек.' },
 ]
 
 const steps = [

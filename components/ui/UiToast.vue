@@ -16,7 +16,7 @@ const icons: Record<string, string> = {
         <div
           v-for="toast in toasts"
           :key="toast.id"
-          class="relative flex items-center gap-[10px] px-[18px] py-3 bg-noir-card border border-noir-border rounded-card cursor-pointer pointer-events-auto min-w-[280px] max-w-[400px]"
+          class="relative flex items-center gap-[10px] px-[18px] py-3 bg-[#1E1C18] border border-[#3A3020] rounded-card cursor-pointer pointer-events-auto min-w-[280px] max-w-[400px] shadow-xl"
           :class="{
             'border-l-2 border-l-theme-football': toast.type === 'success',
             'border-l-2 border-l-theme-politics': toast.type === 'error',
@@ -34,7 +34,7 @@ const icons: Record<string, string> = {
               'text-[#5C6BC0]': toast.type === 'info',
             }"
           >{{ icons[toast.type] }}</span>
-          <span class="text-[13px] text-ivory-muted leading-[1.4]">{{ toast.message }}</span>
+          <span class="text-[13px] text-ivory leading-[1.4]">{{ toast.message }}</span>
         </div>
       </TransitionGroup>
     </div>
